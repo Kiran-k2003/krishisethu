@@ -183,7 +183,6 @@ function App() {
               लेन-देन ट्रैक करें / Track Transaction
             </button>
           </div>
-          />
         );
       
       case 'market':
