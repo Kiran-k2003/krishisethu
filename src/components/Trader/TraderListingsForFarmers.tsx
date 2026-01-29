@@ -31,14 +31,14 @@ const TraderListingsForFarmers: React.FC<TraderListingsForFarmersProps> = ({
 
   // Mock data for traders interested in farmer's produce
   const traderInterests = {
-    '2': ['गेहूं (Wheat)', 'धान (Rice)'],
-    '3': ['गेहूं (Wheat)'],
-    '4': ['धान (Rice)', 'मक्का (Maize)']
+    '550e8400-e29b-41d4-a716-446655440002': ['गेहूं (Wheat)', 'धान (Rice)'],
+    '550e8400-e29b-41d4-a716-446655440003': ['गेहूं (Wheat)'],
+    '550e8400-e29b-41d4-a716-446655440004': ['धान (Rice)', 'मक्का (Maize)']
   };
 
   const mockTraders: User[] = [
     {
-      id: '2',
+      id: '550e8400-e29b-41d4-a716-446655440002',
       name: 'श्याम व्यापारी',
       phone: '+91-9876543211',
       type: 'trader',
@@ -46,7 +46,7 @@ const TraderListingsForFarmers: React.FC<TraderListingsForFarmersProps> = ({
       verified: true
     },
     {
-      id: '3',
+      id: '550e8400-e29b-41d4-a716-446655440003',
       name: 'राज एंटरप्राइजेज',
       phone: '+91-9876543212',
       type: 'trader',
@@ -54,7 +54,7 @@ const TraderListingsForFarmers: React.FC<TraderListingsForFarmersProps> = ({
       verified: true
     },
     {
-      id: '4',
+      id: '550e8400-e29b-41d4-a716-446655440004',
       name: 'गुप्ता ट्रेडिंग',
       phone: '+91-9876543213',
       type: 'trader',
@@ -62,7 +62,7 @@ const TraderListingsForFarmers: React.FC<TraderListingsForFarmersProps> = ({
       verified: false
     },
     {
-      id: '5',
+      id: '550e8400-e29b-41d4-a716-446655440005',
       name: 'महाराष्ट्र एग्रो',
       phone: '+91-9876543214',
       type: 'trader',

@@ -2,7 +2,7 @@ import { User, Produce, MarketPrice, Transaction, GovernmentScheme, Message } fr
 
 export const mockUsers: User[] = [
   {
-    id: '1',
+    id: '550e8400-e29b-41d4-a716-446655440001',
     name: 'Ram Kumar',
     phone: '+91-9876543210',
     type: 'farmer',
@@ -10,7 +10,7 @@ export const mockUsers: User[] = [
     verified: true
   },
   {
-    id: '2',
+    id: '550e8400-e29b-41d4-a716-446655440002',
     name: 'Shyam Trader',
     phone: '+91-9876543211',
     type: 'trader',
@@ -22,7 +22,7 @@ export const mockUsers: User[] = [
 export const mockProduce: Produce[] = [
   {
     id: '1',
-    farmerId: '1',
+    farmerId: '550e8400-e29b-41d4-a716-446655440001',
     name: 'Wheat',
     variety: 'HD-2967',
     quantity: 100,
@@ -37,7 +37,7 @@ export const mockProduce: Produce[] = [
     bids: [
       {
         id: 'b1',
-        traderId: '2',
+        traderId: '550e8400-e29b-41d4-a716-446655440002',
         traderName: 'Shyam Trader',
         amount: 2300,
         quantity: 50,
@@ -49,7 +49,7 @@ export const mockProduce: Produce[] = [
   },
   {
     id: '2',
-    farmerId: '1',
+    farmerId: '550e8400-e29b-41d4-a716-446655440001',
     name: 'Rice',
     variety: 'IR-64',
     quantity: 75,
@@ -180,8 +180,8 @@ export const mockTransactions: Transaction[] = [
   {
     id: '1',
     produceId: '1',
-    farmerId: '1',
-    traderId: '2',
+    farmerId: '550e8400-e29b-41d4-a716-446655440001',
+    traderId: '550e8400-e29b-41d4-a716-446655440002',
     amount: 115000,
     quantity: 50,
     status: 'confirmed',
@@ -251,24 +251,24 @@ export const mockGovernmentSchemes: GovernmentScheme[] = [
 export const mockMessages: Message[] = [
   {
     id: '1',
-    senderId: '2',
-    receiverId: '1',
+    senderId: '550e8400-e29b-41d4-a716-446655440002',
+    receiverId: '550e8400-e29b-41d4-a716-446655440001',
     content: 'Hello, how is your wheat quality?',
     timestamp: new Date(Date.now() - 3600000).toISOString(),
     read: true
   },
   {
     id: '2',
-    senderId: '1',
-    receiverId: '2',
+    senderId: '550e8400-e29b-41d4-a716-446655440001',
+    receiverId: '550e8400-e29b-41d4-a716-446655440002',
     content: 'Very good wheat quality, would you like to see it?',
     timestamp: new Date(Date.now() - 3000000).toISOString(),
     read: true
   },
   {
     id: '3',
-    senderId: '2',
-    receiverId: '1',
+    senderId: '550e8400-e29b-41d4-a716-446655440002',
+    receiverId: '550e8400-e29b-41d4-a716-446655440001',
     content: 'Yes, I will come tomorrow to see it.',
     timestamp: new Date(Date.now() - 1800000).toISOString(),
     read: false
