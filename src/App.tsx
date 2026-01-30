@@ -9,6 +9,10 @@ import EnhancedDashboard from './components/Farmer/EnhancedDashboard';
 import EnhancedAddProduce from './components/Farmer/EnhancedAddProduce';
 import EnhancedMarketPrices from './components/Market/EnhancedMarketPrices';
 import TraderListings from './components/Trader/TraderListings';
+import EnhancedTraderDashboard from './components/Trader/EnhancedTraderDashboard';
+import TraderBids from './components/Trader/TraderBids';
+import TraderPurchases from './components/Trader/TraderPurchases';
+import TraderPayments from './components/Trader/TraderPayments';
 import EnhancedBiddingSystem from './components/Bidding/EnhancedBiddingSystem';
 import EnhancedChatInterface from './components/Chat/EnhancedChatInterface';
 import TransactionTracking from './components/Transaction/TransactionTracking';
@@ -33,6 +37,9 @@ function App() {
   const [showBidding, setShowBidding] = useState(false);
   const [chatUser, setChatUser] = useState<User | null>(null);
   const [showTransaction, setShowTransaction] = useState(false);
+  const [showTraderBids, setShowTraderBids] = useState(false);
+  const [showTraderPurchases, setShowTraderPurchases] = useState(false);
+  const [showTraderPayments, setShowTraderPayments] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState(mockTransactions[0]);
 
   const handleSplashComplete = () => {
@@ -122,6 +129,26 @@ function App() {
     );
   }
 
+  if (showTraderBids) {
+    return <TraderBids onBack={() => setShowTraderBids(false)} />;
+  }
+
+  if (showTraderPurchases) {
+    return (
+      <TraderPurchases 
+        onViewTransaction={(purchase) => {
+          setSelectedTransaction(mockTransactions[0]); // Mock transaction
+          setShowTraderPurchases(false);
+          setShowTransaction(true);
+        }}
+      />
+    );
+  }
+
+  if (showTraderPayments) {
+    return <TraderPayments onViewInvoice={() => {}} />;
+  }
+
   const renderContent = () => {
     if (chatUser) {
       return (
@@ -161,9 +188,14 @@ function App() {
           />
         ) : (
           <div className="p-4 space-y-6">
-            <TraderDashboard
+            <EnhancedTraderDashboard
             availableProduce={produces}
+            myBids={[]}
             myTransactions={mockTransactions}
+            onViewProduce={() => setActiveTab('browse')}
+            onViewBids={() => setShowTraderBids(true)}
+            onViewTransactions={() => setShowTraderPurchases(true)}
+            onViewPayments={() => setShowTraderPayments(true)}
             />
             <button
               onClick={handleViewTransaction}
@@ -307,6 +339,7 @@ function App() {
       {appState === 'main' && currentUser && (
         <div className="min-h-screen bg-gray-50">
           {!chatUser && !showBidding && !showTransaction && (
+          {!chatUser && !showBidding && !showTransaction && !showTraderBids && !showTraderPurchases && !showTraderPayments && (
             <Header 
               userName={currentUser.name}
               location={currentUser.location}
@@ -314,11 +347,11 @@ function App() {
             />
           )}
           
-          <main className={`${!chatUser && !showBidding && !showTransaction ? 'pt-4 pb-20' : 'pb-20 h-screen'}`}>
+          <main className={`${!chatUser && !showBidding && !showTransaction && !showTraderBids && !showTraderPurchases && !showTraderPayments ? 'pt-4 pb-20' : 'pb-20 h-screen'}`}>
             {renderContent()}
           </main>
           
-          {!chatUser && !showBidding && !showTransaction && (
+          {!chatUser && !showBidding && !showTransaction && !showTraderBids && !showTraderPurchases && !showTraderPayments && (
             <Navigation
               activeTab={activeTab}
               onTabChange={setActiveTab}
