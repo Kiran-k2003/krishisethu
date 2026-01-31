@@ -8,14 +8,7 @@ import {
   Eye,
   Star,
   MapPin,
-  IndianRupee as Rupee,
-  ArrowUp,
-  ArrowDown,
-  Activity,
   CreditCard,
-  Truck,
-  AlertTriangle,
-  Filter,
   Calendar,
   BarChart3,
   ShoppingCart,
@@ -247,12 +240,11 @@ const TraderDashboard: React.FC<TraderDashboardProps> = ({
                           ['payment_initiated', 'payment_completed'].includes(transaction.status) ? 'bg-blue-600' :
                           transaction.status === 'deal_accepted' ? 'bg-purple-600' :
                           'bg-yellow-600'
+                        } ${
+                          transaction.status === 'completed' ? 'w-full' :
+                          ['payment_initiated', 'payment_completed'].includes(transaction.status) ? 'w-3/4' :
+                          transaction.status === 'deal_accepted' ? 'w-1/2' : 'w-1/4'
                         }`}
-                        style={{ 
-                          width: transaction.status === 'completed' ? '100%' :
-                                 ['payment_initiated', 'payment_completed'].includes(transaction.status) ? '75%' :
-                                 transaction.status === 'deal_accepted' ? '50%' : '25%'
-                        }}
                       />
                     </div>
                   </div>
@@ -407,7 +399,7 @@ const TraderDashboard: React.FC<TraderDashboardProps> = ({
               <div className="text-right">
                 <p className="font-bold text-green-600">₹{produce.currentPrice.toLocaleString()}</p>
                 <p className="text-xs text-gray-500">per {produce.unit}</p>
-                <button className="mt-1 p-1 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors">
+                <button title="View produce" className="mt-1 p-1 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors">
                   <Eye size={14} className="text-blue-600" />
                 </button>
               </div>
