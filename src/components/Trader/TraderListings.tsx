@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
   Search, 
-  Filter, 
   MapPin, 
   Package, 
   Star,
@@ -156,6 +155,7 @@ const TraderListings: React.FC<TraderListingsProps> = ({ produces, onViewProduce
           <div className="flex items-center justify-between">
             <h3 className="font-semibold text-gray-800">उन्नत फिल्टर / Advanced Filters</h3>
             <button
+              title="Close filters"
               onClick={() => setShowFilters(false)}
               className="p-1 hover:bg-gray-100 rounded-full"
             >
@@ -170,6 +170,7 @@ const TraderListings: React.FC<TraderListingsProps> = ({ produces, onViewProduce
                 फसल प्रकार / Crop Type
               </label>
               <select
+                title="Filter by crop type"
                 value={selectedCrop}
                 onChange={(e) => setSelectedCrop(e.target.value)}
                 className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -187,6 +188,7 @@ const TraderListings: React.FC<TraderListingsProps> = ({ produces, onViewProduce
                 स्थान / Location
               </label>
               <select
+                title="Filter by location"
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
                 className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -251,6 +253,7 @@ const TraderListings: React.FC<TraderListingsProps> = ({ produces, onViewProduce
               क्रमबद्ध करें / Sort By
             </label>
             <select
+              title="Sort listings"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
               className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -350,7 +353,7 @@ const TraderListings: React.FC<TraderListingsProps> = ({ produces, onViewProduce
                     </div>
                   </div>
                   
-                  <button className="p-2 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors">
+                  <button title="View produce" className="p-2 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors">
                     <Eye size={16} className="text-blue-600" />
                   </button>
                 </div>
