@@ -173,7 +173,13 @@ const TraderListings: React.FC<TraderListingsProps> = ({ produces, onViewProduce
                     <div className="flex items-center space-x-1">
                       <Clock size={14} />
                       <span>{formatTimeAgo(produce.harvestDate)}</span>
-                    </div>
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onViewProduce(produce);
+                    }}
+                    className="p-2 bg-blue-100 rounded-full hover:bg-blue-200 transition-colors"
+                  >
                   </div>
                   
                   <div className="flex items-center space-x-2">

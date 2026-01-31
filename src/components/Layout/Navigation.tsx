@@ -22,8 +22,9 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange, userTyp
   const traderTabs = [
     { id: 'dashboard', icon: Home, labelKey: 'nav.home' },
     { id: 'browse', icon: TrendingUp, labelKey: 'nav.buy' },
+    { id: 'bids', icon: MessageCircle, labelKey: 'My Bids' },
     { id: 'chat', icon: MessageCircle, labelKey: 'nav.chat' },
-    { id: 'profile', icon: User, labelKey: 'nav.profile' },
+    { id: 'purchases', icon: User, labelKey: 'Purchases' },
   ];
 
   const adminTabs = [
