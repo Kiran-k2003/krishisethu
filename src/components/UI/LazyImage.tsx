@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ImageIcon } from 'lucide-react';
+import { Image as ImageIcon } from 'lucide-react';
 
 interface LazyImageProps {
   src: string;
